@@ -1,10 +1,11 @@
 <div class="container p-5">
 
   <h1 class="mb-5">Task Manager V 1.0</h1>
-
-  <h2><%= @task.title%></h2>
-  <p><%= @task.details%></p>
-  <p><i class="<%= @task.completed ? 'far fa-check-square fa-lg text-success' : 'far fa-square fa-lg' %>"></i></p>
+  <div class="p-2">
+    <h2 class="pb-3"><%= @task.title%></h2>
+    <p><%= @task.details%></p>
+    <p><i class="<%= @task.completed ? 'far fa-check-square fa-lg text-success' : 'far fa-square fa-lg' %>"></i></p>
+  </div>
 
   <div class="mt-5">
     <%= link_to '<i class="fas fa-undo-alt fa-2x"></i>'.html_safe, tasks_path%>
