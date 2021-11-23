@@ -1,9 +1,15 @@
-<h1>Tasks Manager V 1.0</h1>
+<div class="container p-5">
+  <h1 class="mb-5">Tasks Manager V 1.0</h1>
 
-<ul>
-  <%@tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task) %>  <%= link_to 'X', task_path(task), method: :delete, data: {confirm: 'Are you sure?'} %></li>
-  <%end%>
-</ul>
+  <ul style="list-style-type: none" class="ml-0 mb-5">
+    <%@tasks.each do |task| %>
+      <li>
+        <i class="<%= task["completed"] ? 'far fa-check-square text-success' : 'far fa-square' %>"></i>
+        <%= link_to task.title, task_path(task) %>
+        <%= link_to '<i class="far fa-times-circle" style="color:red !important;"></i>'.html_safe, task_path(task), method: :delete, data: {confirm: 'Are you sure?'} %>
+      </li>
+    <%end%>
+  </ul>
 
-<%= link_to 'Create a new task', new_task_path %>
+  <%= link_to '<i class="far fa-clipboard-list fa-2x"></i>'.html_safe, new_task_path %>
+</div>
